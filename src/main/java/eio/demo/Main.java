@@ -7,25 +7,26 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
+        try {
+            File file = new File("D:\\Quarkus\\employee.xlsx");
+            FileInputStream fis = new FileInputStream(file);
+            XSSFWorkbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheetAt(0);
 
-        File file = new File("D:\\Quarkus\\employee.xlsx");
-        FileInputStream fis = new FileInputStream(file);
-        XSSFWorkbook workbook = new XSSFWorkbook(fis);
-        Sheet sheet = workbook.getSheetAt(0);
+            System.out.println("Data IS -> \n");
 
-        System.out.println("Data IS -> \n");
-
-        for(Row row : sheet)
-        {
-            for(Cell cell : row)
-            {
-                System.out.print(cell.toString()+ " \t"+" \t ");
+            for (Row row : sheet) {
+                for (Cell cell : row) {
+                    System.out.print(cell.toString() + " \t" + " \t ");
+                }
+                System.out.println();
             }
-            System.out.println();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 }
