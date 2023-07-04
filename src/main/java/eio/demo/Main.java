@@ -11,18 +11,27 @@ import java.io.FileInputStream;
 public class Main {
     public static void main(String[] args)  {
         try {
-            File file = new File("D:\\Quarkus\\employee.xlsx");
-            FileInputStream fis = new FileInputStream(file);
-            XSSFWorkbook workbook = new XSSFWorkbook(fis);
-            Sheet sheet = workbook.getSheetAt(0);
-
-            System.out.println("Data IS -> \n");
-
-            for (Row row : sheet) {
-                for (Cell cell : row) {
-                    System.out.print(cell.toString() + " \t" + " \t ");
-                }
+            if(args.length>0) {
+                String FileName = args[0];
+//                String FilePath = "D:\\Quarkus\\";
+                String FilePath = args[1];
+                String FinalFileName = FilePath.concat("").concat(FileName);
+                System.out.println("File Name with path is :-"+FinalFileName);
                 System.out.println();
+
+               // File file = new File(FinalFileName);
+                FileInputStream fis = new FileInputStream(FinalFileName);
+                XSSFWorkbook workbook = new XSSFWorkbook(fis);
+                Sheet sheet = workbook.getSheetAt(0);
+
+                System.out.println("Data IS -> \n");
+
+                for (Row row : sheet) {
+                    for (Cell cell : row) {
+                        System.out.print(cell.toString() + " \t" + " \t ");
+                    }
+                    System.out.println();
+                }
             }
 
 
