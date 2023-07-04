@@ -15,7 +15,12 @@
     </properties>
 
     <dependencies>
-        <!-- Apache POI dependencies -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.5.0</version>
+            <type>maven-plugin</type>
+        </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
