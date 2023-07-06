@@ -13,14 +13,14 @@ public class Main {
         try {
             if(args.length>0) {
                 String FileName = args[0];
-//                String FilePath = "D:\\Quarkus\\";
-                String FilePath = args[1];
-                String FinalFileName = FilePath.concat("").concat(FileName);
-                System.out.println("File Name with path is :-"+FinalFileName);
-                System.out.println();
+//                String FilePath = "D:\\Quarkus\\ICD.xlsx";
+               // String FilePath = args[1];
+               // String FinalFileName = FilePath.concat("").concat(FileName);
+                //System.out.println("File Name with path is :-"+FinalFileName);
+                //System.out.println();
 
                // File file = new File(FinalFileName);
-                FileInputStream fis = new FileInputStream(FinalFileName);
+                FileInputStream fis = new FileInputStream(FileName);
                 XSSFWorkbook workbook = new XSSFWorkbook(fis);
                 Sheet sheet = workbook.getSheetAt(0);
 
