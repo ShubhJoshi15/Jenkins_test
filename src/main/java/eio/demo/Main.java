@@ -12,15 +12,15 @@ public class Main {
     public static void main(String[] args)  {
         try {
             if(args.length>0) {
-                String FileName = args[0];
-                String FilePath = "D:\\Quarkus\\ICD.xlsx";
+               // String FileName = args[0];
+                String Name = "ICD-Data.xlsx";
                // String FilePath = args[1];
                // String FinalFileName = FilePath.concat("").concat(FileName);
                 //System.out.println("File Name with path is :-"+FinalFileName);
                 //System.out.println();
 
                // File file = new File(FinalFileName);
-                FileInputStream fis = new FileInputStream(FileName);
+                FileInputStream fis = new FileInputStream(Name);
                 XSSFWorkbook workbook = new XSSFWorkbook(fis);
                 Sheet sheet = workbook.getSheetAt(0);
 
