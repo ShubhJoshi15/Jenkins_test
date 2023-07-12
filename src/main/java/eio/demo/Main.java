@@ -97,7 +97,7 @@ public class Main {
                 }
                 else {
                     System.out.println("File not exist reassign with different file name ");
-//                    fileName = "../"+fileName;
+                    fileName = "../"+fileName;
 
                 }
                 FileInputStream fis = new FileInputStream(fileName);
