@@ -98,7 +98,8 @@ public class Main {
                 }
                 else {
                     System.out.println("File not exist reassign with different file name ");
-                    fileName = "../"+fileName;
+                    String filePath = "../";
+                    fileName = filePath.concat("").concat(fileName);
 
                 }
                 FileInputStream fis = new FileInputStream(fileName);
