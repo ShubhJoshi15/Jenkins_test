@@ -85,6 +85,7 @@ public class Main {
 //            e.printStackTrace();
 //            }
 
+        System.out.println("Hello Shubham....");
         try {
             for(String fileArg : args)
             {
@@ -114,7 +115,7 @@ public class Main {
                 }
             }
 
-            System.out.println("Hello EIO Team....");
+
 
         }catch (Exception e)
         {
