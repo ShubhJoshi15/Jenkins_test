@@ -1,7 +1,6 @@
 package eio.demo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class JenkinsTest {
@@ -9,7 +8,9 @@ public class JenkinsTest {
     public void getDataFromJenkins(String[] datafromUser){
         List<String> objectCode = new ArrayList<>();
 
-        objectCode.addAll(Arrays.asList(datafromUser));
+        for(String obj : datafromUser){
+            objectCode.add(obj);
+        }
 
         System.out.println(objectCode);
     }
