@@ -26,7 +26,7 @@ pipeline {
 					def selectedValue = params.SELECTED_VALUE
 					if(selectedValue == "ALL"){
 						echo "U are selected ALL"
-						arguments.add("A14", "A43")
+						arguments.addAll("A14", "A43")
 					}else{
 						arguments.add(selectedValue)
 					}
