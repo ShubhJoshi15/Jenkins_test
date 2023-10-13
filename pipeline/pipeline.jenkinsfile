@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+	parameters {
+        extendedChoice(name: 'SELECTED_VALUE', description: 'Select a value', type: 'PT_SINGLE_SELECT', groovyScript: 'return ["ALL","A14", "A43"]', multiSelectDelimiter: ',', quoteValue: false)
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+            checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ShubhJoshi15/Jenkins_test.git']])
+            }
+        }
+
+        stage('Build') {
+			  steps {
+				   bat 'mvn clean install'
+			  }
+		}
+
+		stage('Run') {
+			  steps {
+			     dir('target'){
+				   script{
+					def arguments = []
+					def selectedValue = params.SELECTED_VALUE
+					if(selectedValue == "ALL"){
+						echo "U are selected ALL"
+						arguments.add("A14", "A43")
+					}else{
+						arguments.add(selectedValue)
+					}
+					bat 'java -jar Jenkins_test-1.0-SNAPSHOT.jar' ${arguments}
+
+				   }
+
+					}
+			  }
+		}
+
+
+    }
+}
