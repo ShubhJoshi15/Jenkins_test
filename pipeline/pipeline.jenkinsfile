@@ -2,7 +2,7 @@ pipeline {
     agent any
 
 	parameters {
-        extendedChoice(name: 'SELECTED_VALUE', description: 'Select a value', type: 'PT_SINGLE_SELECT', groovyScript: 'return ["ALL","A14", "A43"]', multiSelectDelimiter: ',', quoteValue: false)
+        extendedChoice(name: 'SELECTED_VALUE', description: 'Select a value', type: 'PT_SINGLE_SELECT', groovyScript: 'return ["ALL","A14","A215","A43"]', multiSelectDelimiter: ',', quoteValue: false)
     }
 
     stages {
@@ -22,19 +22,22 @@ pipeline {
 			  steps {
 			     dir('target'){
 				   script{
-					def options = ['A14', 'A43','ALL']
-					def userInput = input(
-                        id: 'userInput',
-                        message: 'Select an option:',
-                        parameters: [choice(name: 'OPTION', choices: options.join('\n'), description: 'Select an option')]
-                    )
-					def selectedOption = userInput['OPTION']
+					def options = []
+
+					def selectedOption = params.SELECTED_VALUE
 
 					if(selectedValue == "ALL"){
-						bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${options.join(' ')}"
+						echo "You selected All"
+						options.addAll("A15","A43","A215")
+
 					}else{
-						 bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${selectedOption}"
+						 options.add(selectedOption)
 					}
+
+                    for(def opt : options)
+                    {
+                        bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${opt}"
+                    }
 
 
 				   }
