@@ -30,7 +30,7 @@ pipeline {
 					}else{
 						arguments.add(selectedValue)
 					}
-					bat 'java -jar Jenkins_test-1.0-SNAPSHOT.jar' ${arguments}
+					bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar  ${arguments}"
 
 				   }
 
