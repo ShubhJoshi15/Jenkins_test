@@ -22,22 +22,20 @@ pipeline {
 			  steps {
 			     dir('target'){
 				   script{
-					def options = []
+					def options = ["A15","A43","A215"]
 
 					def selectedOption = params.SELECTED_VALUE
 
 					if(selectedValue == "ALL"){
 						echo "You selected All"
-						options.add("A15","A43","A215")
+						def val = options.join(", ")
+						bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${val}"
 
 					}else{
-						 options.add(selectedOption)
+
+						 bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${selectedOption}"
 					}
 
-                    for(def opt : options)
-                    {
-                        bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${opt}"
-                    }
 
 
 				   }
