@@ -30,6 +30,7 @@ pipeline {
 						echo "You selected All"
 						def val = options.join(", ")
 						bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${val}"
+						echo "You selected All"
 
 					}else{
 

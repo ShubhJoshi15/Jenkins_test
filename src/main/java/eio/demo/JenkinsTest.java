@@ -8,6 +8,7 @@ public class JenkinsTest {
 
     public void getDataFromJenkins(String[] datafromUser){
         List<String> objectCode = new ArrayList<>();
+        System.out.println("Hi you are in");
 
         for(String obj : datafromUser){
             objectCode.add(obj);
