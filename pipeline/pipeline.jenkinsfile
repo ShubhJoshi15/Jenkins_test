@@ -28,9 +28,9 @@ pipeline {
 
 					if(selectedValue == "ALL"){
 						echo "You selected All"
-						def val = options.join(", ")
-						bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${val}"
-						echo "You selected All"
+						def options = ["A15","A43","A215"]
+						bat "java -jar Jenkins_test-1.0-SNAPSHOT.jar ${options}"
+						echo "You  All"
 
 					}else{
 
