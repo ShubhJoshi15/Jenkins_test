@@ -10,7 +10,7 @@ public class JenkinsTest {
         List<String> objectCode = new ArrayList<>();
 
         for(String obj : datafromUser){
-            objectCode.addAll(Collections.singleton(obj));
+            objectCode.add(obj);
         }
 
         System.out.println(objectCode);
